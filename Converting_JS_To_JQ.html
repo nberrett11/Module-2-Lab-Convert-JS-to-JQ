@@ -2,16 +2,28 @@
 <meta charset="UTF-8">
 <title>jsToJQ</title>
 
-<script>
-function alertHover(){
-  document.getElementById("area").style.backgroundColor = "green";
-  alert("Close me to turn the box green.");
-}
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
-function reset(){
-   document.getElementById("area").style.backgroundColor = "#953674"; 
-}
+<script type="text/javascript">
+$(document).ready(function(){ 
+ $	('#area').hover(function(){
+	  alert("Close me to turn the box green.");
+  },
+  function(){
+	  $(this).css("background-color", "green");
+	  
+  });
+ 
+  $	('#reset').click(function(){
+	  $('#area').css("background-color", "#953674");
+	  
+  });
+  	 
+});
+
 </script>
+
+
 
 </head>
 
@@ -26,10 +38,10 @@ function reset(){
 </style>
 
 <body>
+  
+<div id="area"></div>
+<br><button id="reset">Reset</button>
 
-<div id="area" onmouseenter="alertHover();"></div>
-<br><button id="reset" onclick="reset();">Reset</button>
 
 </body>
-
 </html>
